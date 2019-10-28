@@ -18,7 +18,7 @@ while True:
     client.loop_forever()
     Network_Prefix='2001:db8:3c4d:15'
     key_str = 'Secret_key'
-    key = bytes (key_str , 'utf-8')
+    key = bytes (key_str,'utf-8')
     Node_ID = '130'
     Salted_ID_str = Node_ID + seed
     Salted_ID = bytes (Salted_ID_str , 'utf-8')
@@ -52,11 +52,11 @@ while True:
     import os
     sudoPassword = 'Mohannad'
     command = 'ls'
-    os.system('echo %s|sudo -S ifconfig'%sudoPassword)
     os.system('echo %s|sudo -S %s' % (sudoPassword, command))
+    os.system('echo %s|sudo -S ifconfig enp0s3'%sudoPassword)
     os.system('echo %s|sudo -S /etc/init.d/networking stop'%sudoPassword)
     os.system('echo %s|sudo -S ifconfig enp0s3 hw ether %s'%(sudoPassword, MAC))
     os.system('echo %s|sudo -S /etc/init.d/networking start'%sudoPassword)
-    os.system('echo %s|sudo -S ifconfig'%sudoPassword)
+    os.system('echo %s|sudo -S ifconfig enp0s3'%sudoPassword)
 
     continue
