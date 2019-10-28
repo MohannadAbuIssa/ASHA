@@ -57,7 +57,6 @@ while True:
     os.system('echo %s|sudo -S /etc/init.d/networking stop'%sudoPassword)
     os.system('echo %s|sudo -S ifconfig enp0s3 hw ether %s'%(sudoPassword, MAC))
     os.system('echo %s|sudo -S /etc/init.d/networking start'%sudoPassword)
-    os.system('echo %s|sudo -S /etc/init.d/networking start'%sudoPassword)
     os.system('echo %s|sudo -S ifconfig'%sudoPassword)
 
     continue
