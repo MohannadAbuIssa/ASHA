@@ -45,11 +45,19 @@ while True:
     MACx = g.hexdigest()
     MAC =MACx[0:2]+':'+MACx[2:4]+':'+MACx[4:6]+':'+MACx[6:8]+':'+MACx[8:10]+':'+MACx[10:]
 
-    import os
-    x = '192.168.0.1'
-    os.system("ping %s"%x)
+    print('Seed is:',seed)
+    # print (IPv6)
+    print ('MAC is:',MAC)
 
-    print (IPv6)
-    print (MAC)
-    print(seed)
+    import os
+    sudoPassword = 'Mohannad'
+    command = 'ls'
+    os.system('echo %s|sudo -S ifconfig'%sudoPassword)
+    os.system('echo %s|sudo -S %s' % (sudoPassword, command))
+    os.system('echo %s|sudo -S /etc/init.d/networking stop'%sudoPassword)
+    os.system('echo %s|sudo -S ifconfig enp0s3 hw ether %s'%(sudoPassword, MAC))
+    os.system('echo %s|sudo -S /etc/init.d/networking start'%sudoPassword)
+    os.system('echo %s|sudo -S /etc/init.d/networking start'%sudoPassword)
+    os.system('echo %s|sudo -S ifconfig'%sudoPassword)
+
     continue
